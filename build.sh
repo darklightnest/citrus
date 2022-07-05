@@ -3,7 +3,7 @@ rm -rf out
 rm -rf AnyKernel
 echo "Cloning dependencies"
 sudo apt update
-sudo apt upgrade
+sudo apt upgrade -y
 sudo apt install --no-install-recommends -y bc bison curl ccache ca-certificates flex gcc git glibc-doc jq libxml2 libtinfo5 libc6-dev libssl-dev libstdc++6 make openssl python rclone ssh tar tzdata wget zip
 git clone --depth=1 https://github.com/kdrag0n/proton-clang clang
 git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 gcc
@@ -17,8 +17,8 @@ TANGGAL=$(date +"%Y%m%d-%H")
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 PATH="${KERNEL_DIR}/clang/bin:${KERNEL_DIR}/gcc/bin:${KERNEL_DIR}/gcc32/bin:${PATH}"
 export ARCH=arm64
-export KBUILD_BUILD_USER=Fadhil_M
-export KBUILD_BUILD_HOST=The_Emperror
+export KBUILD_BUILD_USER=Darknius
+export KBUILD_BUILD_HOST=Archlinux
 
 make O=out ARCH=arm64 vendor/bengal-perf_defconfig
 
@@ -50,7 +50,7 @@ zipping() {
     cp ../out/arch/arm64/boot/Image .
     cp ../out/arch/arm64/boot/dtb.img .
     cp ../out/arch/arm64/boot/dtbo.img .
-    zip -r9 DarkForce-Unity-juice-${TANGGAL}.zip *
+    zip -r9 DarkForce-citrus-${TANGGAL}.zip *
     cd ..
 }
 
